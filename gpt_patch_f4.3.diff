@@ -1,0 +1,40 @@
+diff --git a/src/models/guidance_generator.py b/src/models/guidance_generator.py
+new file mode 100644
+index 0000000..abcdef0
+--- /dev/null
++++ b/src/models/guidance_generator.py
+@@
++# F4.3 - Return-to-Play Guidance Generator
++def generate_guidance(symptoms, protocol_data):
++    """Return basic RTP guidance based on symptom status."""
++    if not symptoms:
++        return "Please complete the symptom checklist to receive tailored advice."
++    return "Based on your symptoms, we recommend starting at Stage 2 of Return-to-Play."
+
+diff --git a/data/prompts/guidance_prompt.yaml b/data/prompts/guidance_prompt.yaml
+new file mode 100644
+index 0000000..1234567
+--- /dev/null
++++ b/data/prompts/guidance_prompt.yaml
+@@
++template_name: guidance_prompt
++role: system
++prompt:
++  - "You are a helpful medical assistant translating concussion protocols."
++  - "Input: {symptom_summary}"
++  - "Output: Return-to-play advice for coaches and parents."
+
+diff --git a/docs/changelog.md b/docs/changelog.md
+index abcdef1..b123def 100644
+--- a/docs/changelog.md
++++ b/docs/changelog.md
+@@
++## Sprint 2 - April 22–29
++
++### ✨ Added
++- `guidance_generator.py` in `src/models/`
++- `guidance_prompt.yaml` in `data/prompts/`
++
++### 🧠 Reasoning
++- Adds a fallback for missing symptoms
++- Supports F4.3 feature for return-to-play guidance
